@@ -6,7 +6,9 @@ import Cadastro from './components/pages/Cadastro'
 import MovieList from './components/pages/MovieList'
 
 import Navbar from './layout/Navbar'
-import Input from './components/pages/Input'
+import Input from './components/pages/Input'  
+
+
 
 
 function App(){
@@ -15,13 +17,13 @@ function App(){
   const [searchValue, setSearchValue] = useState('');
 
   const getMovieRequest = async (searchValue) => {
-
+    
     const apikey = process.env.REACT_APP_API_KEY
-    const url =`http://www.omdbapi.com/?s=${searchValue}&apikey=${apikey}`
+    const url =`https://www.omdbapi.com/?s=${searchValue}&apikey=${apikey}`
 
 
     const response = await fetch(url)
-    const responseJson = await response.json()
+    const responseJson = await  response.json() 
 
     if (responseJson.Search){
       setMovies (responseJson.Search)
